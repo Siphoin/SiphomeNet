@@ -23,11 +23,11 @@ namespace SiphomeNet.Network.Handlers
         private bool _isConnecting;
         private bool _isDisposed;
 
-        [SerializeField] private RoomListHandler _roomListHandler;
-        [SerializeField] private PlayerListHandler _playerListHandler;
-        [SerializeField] private NetworkSceneHandler _networkSceneHandler;
-        [SerializeField] private RoomObjectSpawnHandler _roomObjectSpawnHandler;
-        [SerializeField] private PingHandler _pingHandler;
+        private RoomListHandler _roomListHandler;
+        private PlayerListHandler _playerListHandler;
+        private NetworkSceneHandler _networkSceneHandler;
+        private RoomObjectSpawnHandler _roomObjectSpawnHandler;
+        private PingHandler _pingHandler;
 
         public event Action<ulong> OnConnected;
         public event Action<ulong> OnDisconnected;
