@@ -16,7 +16,7 @@ namespace SiphomeNet.Network.Handlers
     {
         public static INetworkHandler Singleton { get; private set; }
 
-        [SerializeField]   private NetworkHandlerConfig _config;
+        [SerializeField] private NetworkHandlerConfig _config;
         private NetworkManager _networkManager;
         private bool _isInitialized;
         private CancellationTokenSource _connectionTimeoutCts;
@@ -236,7 +236,8 @@ namespace SiphomeNet.Network.Handlers
                 transport.SetConnectionData("127.0.0.1", _config.Port);
             }
             bool success = _networkManager.StartHost();
-            if (success) CreateSubNetworkHandlers();
+            if (success)
+                StartCoroutine(CreateSubNetworkHandlersDelayed());
             return success;
         }
 
@@ -278,7 +279,8 @@ namespace SiphomeNet.Network.Handlers
         {
             if (!_isInitialized || _networkManager.IsListening) return false;
             bool success = _networkManager.StartHost();
-            if (success) CreateSubNetworkHandlers();
+            if (success)
+                StartCoroutine(CreateSubNetworkHandlersDelayed());
             return success;
         }
 
@@ -319,6 +321,15 @@ namespace SiphomeNet.Network.Handlers
                 if (networkObject != null)
                     networkObject.Spawn();
             }
+        }
+
+        private IEnumerator CreateSubNetworkHandlersDelayed()
+        {
+            // Ждем пока NetworkManager начнет прослушивание
+            yield return new WaitUntil(() => _networkManager != null && _networkManager.IsListening);
+
+
+            CreateSubNetworkHandlers();
         }
 
         private void HandleClientConnected(ulong clientId)

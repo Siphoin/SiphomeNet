@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3b9a3f8b6a9aa44ba71fec4817eef8, type: 3}
   m_Name: NetworkHandlerConfig
   m_EditorClassIdentifier: 
-  _prefabNetworkManager: {fileID: 0}
+  _prefabNetworkManager: {fileID: 8316947300130192884, guid: 95902c09c2e63254a93a54a5be0f2783, type: 3}
   _ipAddress: 127.0.0.1
   _port: 7777
-  _clientPort: 443
+  _clientPort: 7777
   _maxPlayers: 4
   _clientConnectionTimeout: 12
   _useEncryption: 1
   _connectTimeoutMS: 5000
   _maxPacketQueueSize: 2048
-  _enableSSL: 1
-  _serverHostname: example.ngrok.io
+  _enableSSL: 0
+  _serverHostname: 
   _caCertificatePath: 
   _serverCertificatePath: 
   _serverPrivateKeyPath: 
