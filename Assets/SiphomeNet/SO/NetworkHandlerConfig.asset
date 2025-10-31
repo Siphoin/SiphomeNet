@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabNetworkManager: {fileID: 8316947300130192884, guid: 95902c09c2e63254a93a54a5be0f2783, type: 3}
   _ipAddress: 127.0.0.1
-  _port: 7777
-  _clientPort: 7777
+  _port: 5001
+  _clientPort: 5001
   _maxPlayers: 4
   _clientConnectionTimeout: 12
   _useEncryption: 0
@@ -29,8 +29,8 @@ MonoBehaviour:
   _autoStartInBatchMode: 1
   _autoStartAsHostInEditor: 0
   _autoStartAsClientInEditor: 0
-  _keyCodeStartHost: 282
-  _keyCodeStartClient: 283
+  _keyCodeStartHost: 277
+  _keyCodeStartClient: 286
   _subNetwoekHandlers:
   - {fileID: 4858089535564337239, guid: 798fafc92d9a7b141bd03065e4090ff1, type: 3}
   - {fileID: -6774314997327147744, guid: b07f1101f422b4a45bd0cfd3596d8757, type: 3}
