@@ -1,13 +1,16 @@
 using SiphomeNet.Network.Handlers;
 using UnityEngine;
-
-public class ServerConnectionExample : MonoBehaviour
+namespace SiphomeNet.Demo
 {
-    private void Update()
+    public class ServerConnectionExample : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        private void Update()
         {
-            NetworkHandler.Singleton.StartHost();
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                NetworkHandler.Singleton.StartHost();
+            }
         }
     }
+
 }
