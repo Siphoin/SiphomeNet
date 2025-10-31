@@ -237,7 +237,7 @@ namespace SiphomeNet.Network.Handlers
             }
             bool success = _networkManager.StartHost();
             if (success)
-                StartCoroutine(CreateSubNetworkHandlersDelayed());
+                CreateSubNetworkHandlers();
             return success;
         }
 
@@ -280,7 +280,7 @@ namespace SiphomeNet.Network.Handlers
             if (!_isInitialized || _networkManager.IsListening) return false;
             bool success = _networkManager.StartHost();
             if (success)
-                StartCoroutine(CreateSubNetworkHandlersDelayed());
+                CreateSubNetworkHandlers();
             return success;
         }
 
@@ -322,16 +322,6 @@ namespace SiphomeNet.Network.Handlers
                     networkObject.Spawn();
             }
         }
-
-        private IEnumerator CreateSubNetworkHandlersDelayed()
-        {
-            // Ждем пока NetworkManager начнет прослушивание
-            yield return new WaitUntil(() => _networkManager != null && _networkManager.IsListening);
-
-
-            CreateSubNetworkHandlers();
-        }
-
         private void HandleClientConnected(ulong clientId)
         {
             if (_networkManager.IsClient && !_networkManager.IsHost && clientId == _networkManager.LocalClientId)
